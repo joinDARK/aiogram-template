@@ -16,17 +16,17 @@ async def main() -> None:
     logger = setup_logger(__name__)
 
     # Получаем токен бота. Также проверяем его наличие, иначе вызываем ошибку
-    BOT_TOKEN = os.getenv("BOT_TOKEN")
-    if BOT_TOKEN is None:
+    bot_token = os.getenv("BOT_TOKEN")
+    if bot_token is None:
         logger.critical(
-            f"Не задан токен бота в переменных окружения. BOT_TOKEN: {BOT_TOKEN}"
+            f"Не задан токен бота в переменных окружения. bot_token: {bot_token}"
         )
         raise Exception(
-            f"Не задан токен бота в переменных окружения. BOT_TOKEN: {BOT_TOKEN}"
+            f"Не задан токен бота в переменных окружения. bot_token: {bot_token}"
         )
 
     # Инициализируем бота и диспатчер
-    bot = Bot(token=BOT_TOKEN)
+    bot = Bot(token=bot_token)
     dp = Dispatcher()
 
     # Привязываем к диспатчеру роутер
